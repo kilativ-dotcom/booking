@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>welcome</servlet-name>
+        <jsp-file>/WEB-INF/jsp/welcome.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>welcome</servlet-name>
+        <url-pattern>/welcome</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>localeChange</filter-name>
+        <filter-class>com.example.booking.filters.LocaleChangeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>localeChange</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>emailPassword</filter-name>
+        <filter-class>com.example.booking.filters.EmailPasswordFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>emailPassword</filter-name>
+        <url-pattern>/authentication/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>view</filter-name>
+        <filter-class>com.example.booking.filters.ViewFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>view</filter-name>
+        <url-pattern>/view/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>requestCreation</filter-name>
+        <filter-class>com.example.booking.filters.RequestCreationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>requestCreation</filter-name>
+        <url-pattern>/frontControllerServlet</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>authorization</filter-name>
+        <filter-class>com.example.booking.filters.CommandFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authorization</filter-name>
+        <url-pattern>/frontControllerServlet</url-pattern>
+    </filter-mapping>
+
+    <context-param>
+        <param-name>log4j-config-location</param-name>
+        <param-value>WEB-INF/classes/log4j.properties</param-value>
+    </context-param>
+    <context-param>
+        <param-name>connection-pool-config-location</param-name>
+        <param-value>WEB-INF/classes/connection.properties</param-value>
+    </context-param>
+</web-app>
