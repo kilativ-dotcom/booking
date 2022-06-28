@@ -1,0 +1,16 @@
+BODY {
+    background: white;
+}
+TABLE {
+    border-collapse: collapse;
+    border: 2px solid white;
+}
+TD, TH {
+    padding: 3px;
+    border: 1px solid maroon;
+    word-wrap: break-word;
+    max-width: 350px;
+}
+TH {
+    background-color: cornflowerblue;
+}
