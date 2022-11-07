@@ -43,6 +43,5 @@
 <%--        <my:possibleMessage text="${requestScope[Constants.SIGNUP_MESSAGE_BAD_CREDENTIALS]}"/>--%>
     </c:otherwise>
 </c:choose>
-<a href="${Constants.INDEX_PAGE_URL}"><fmt:message key="button.gotoHomePage"/></a>
 </body>
 </html>
