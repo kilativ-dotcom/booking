@@ -15,7 +15,7 @@ public class SuiteClassDaoImpl extends AbstractSuiteClassDao {
 
     private static final String ID_NAME = "id";
     private static final String NAME_NAME = "name";
-    private static final String TABLE_NAME = "login_test.suiteclasses";
+    private static final String TABLE_NAME = "db_booking.suiteclasses";
 
     private static final String QUERY_SELECT_ALL = "select * from " + TABLE_NAME;
 

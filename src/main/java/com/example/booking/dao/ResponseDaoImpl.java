@@ -23,7 +23,7 @@ public class ResponseDaoImpl extends AbstractResponseDao{
     public static final String REQUEST_ID_NAME = "requestId";
     public static final String SUITE_ID_NAME = "suiteId";
     public static final String CREATOR_ID_NAME = "creatorId";
-    public static final String TABLE_NAME = "login_test.responses";
+    public static final String TABLE_NAME = "db_booking.responses";
 
     private static final String QUERY_GET_ALL = "select * from " + TABLE_NAME;
 

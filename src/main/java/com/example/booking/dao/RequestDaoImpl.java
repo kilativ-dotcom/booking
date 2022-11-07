@@ -27,7 +27,7 @@ public class RequestDaoImpl extends AbstractRequestDao {
     public static final String COMMENT_NAME = "comment";
     public static final String IS_CANCELLED_NAME = "isCancelled";
     public static final String CREATOR_ID_NAME = "creatorId";
-    public static final String TABLE_NAME = "login_test.requests";
+    public static final String TABLE_NAME = "db_booking.requests";
 
     private static final String QUERY_SELECT_ALL = "select * from " + TABLE_NAME;
 

@@ -20,7 +20,7 @@ public class SuiteDaoImpl extends AbstractSuiteDao{
     private static final String MAX_GUESTS_NAME = "maxGuests";
     private static final String SUITE_CLASS_ID_NAME = "suiteClassId";
     private static final String COST_NAME = "costPerNight";
-    private static final String TABLE_NAME = "login_test.suites";
+    private static final String TABLE_NAME = "db_booking.suites";
 
     private static final String QUERY_GET_ALL = "select * from " + TABLE_NAME;
 

@@ -18,7 +18,7 @@ public class UserDaoImpl extends AbstractUserDao {
     private static final String LOGIN_NAME = "email";
     private static final String PASSWORD_NAME = "password";
     private static final String IS_ADMIN_NAME = "isAdmin";
-    private static final String TABLE_NAME = "login_test.users";
+    private static final String TABLE_NAME = "db_booking.users";
 
     private static final String QUERY_SELECT_ALL = "select * from " + TABLE_NAME;
 
