@@ -3,8 +3,6 @@ package com.example.booking.filters;
 import com.example.booking.commands.CommandFactory;
 import com.example.booking.constants.Constants;
 import com.example.booking.entity.User;
-import com.example.booking.pages.AbstractPage;
-import com.example.booking.pages.ForwardPage;
 import org.apache.log4j.Logger;
 
 import javax.servlet.*;
@@ -66,25 +64,20 @@ public class CommandFilter implements Filter {
             if (guestCommands.contains(command)) {
                 LOGGER.trace("Authorized access");
                 addCommandFromFactoryToRequest(httpRequest, command);
-                chain.doFilter(request, response);
             } else {
                 LOGGER.trace("Attempt of unauthorized access. Sending to login page");
-                AbstractPage page = CommandFactory.getCommand("PREPARELOGIN").execute(httpRequest);
-                page.finishRequest(httpRequest, httpResponse);
+                addCommandFromFactoryToRequest(httpRequest, "PREPARELOGIN");
             }
-            return;
-        }
-
-        boolean notAdminExecutingNotAdminCommand = !user.isAdmin() && notAdminCommands.contains(command);
-        boolean adminExecutingAdminCommand = user.isAdmin() && adminCommands.contains(command);
-        if (notAdminExecutingNotAdminCommand || adminExecutingAdminCommand) {
-            LOGGER.trace("Authorized access");
-            addCommandFromFactoryToRequest(httpRequest, command);
         } else {
-            LOGGER.trace("Attempt of unauthorized access. Sending to welcome page");
-            AbstractPage page = new ForwardPage("/welcome");
-            page.finishRequest(httpRequest, httpResponse);
-            return;
+            boolean notAdminExecutingNotAdminCommand = !user.isAdmin() && notAdminCommands.contains(command);
+            boolean adminExecutingAdminCommand = user.isAdmin() && adminCommands.contains(command);
+            if (notAdminExecutingNotAdminCommand || adminExecutingAdminCommand) {
+                LOGGER.trace("Authorized access");
+                addCommandFromFactoryToRequest(httpRequest, command);
+            } else {
+                LOGGER.trace("Attempt of unauthorized access. Sending to welcome page");
+                addCommandFromFactoryToRequest(httpRequest, "WRONG");
+            }
         }
         chain.doFilter(request, response);
     }
