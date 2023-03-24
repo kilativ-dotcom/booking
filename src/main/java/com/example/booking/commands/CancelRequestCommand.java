@@ -10,6 +10,7 @@ public class CancelRequestCommand implements Command{
     @Override
     public AbstractPage execute(HttpServletRequest request) {
         int requestId = Integer.parseInt(String.valueOf(request.getParameter(Constants.PARAMETER_CANCELLED_REQUEST_ID)));
+//
 // TODO: 07.03.2022 make filter to allow only integers here
         RequestsService.cancelRequestById(requestId);
 
